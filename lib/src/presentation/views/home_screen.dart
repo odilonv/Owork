@@ -8,6 +8,7 @@ class HomeScreen extends StatefulWidget {
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
+
 class _HomeScreenState extends State<HomeScreen> {
   bool start = false;
 
@@ -19,11 +20,6 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-
-    const _kFontFam = 'MyFlutterApp';
-    const String? _kFontPkg = null;
-    const IconData component_1 = IconData(0xe801, fontFamily: _kFontFam, fontPackage: _kFontPkg);
-
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,
@@ -56,7 +52,6 @@ class _HomeScreenState extends State<HomeScreen> {
                 size: 150,
               ),
             )
-
           ],
         ),
       ),
