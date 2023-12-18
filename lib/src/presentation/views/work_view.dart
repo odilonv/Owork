@@ -2,32 +2,21 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
 @RoutePage()
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+class WorkView extends StatefulWidget {
+  const WorkView({super.key});
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  State<WorkView> createState() => _WorkViewState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
-  bool start = false;
-
-  void _incrementCounter() {
-    setState(() {
-      start = !start;
-    });
-  }
-
+class _WorkViewState extends State<WorkView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         title: Center(
-          child: Text(
-              'OWORK',
-              style : Theme.of(context).textTheme.titleLarge
-          ),
+          child: Text('OWORK', style: Theme.of(context).textTheme.titleLarge),
         ),
       ),
       body: Center(
@@ -35,7 +24,7 @@ class _HomeScreenState extends State<HomeScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
-              'JE ME',
+              'JE SUIS',
               style: Theme.of(context).textTheme.headlineLarge,
               textAlign: TextAlign.center,
             ),
@@ -44,18 +33,9 @@ class _HomeScreenState extends State<HomeScreen> {
               style: Theme.of(context).textTheme.headlineMedium,
               textAlign: TextAlign.center,
             ),
-            IconButton(
-              onPressed: _incrementCounter,
-              icon: Icon(
-                start ? Icons.alarm_on : Icons.circle_outlined,
-                color: start ? Colors.white : Colors.white,
-                size: 150,
-              ),
-            )
           ],
         ),
       ),
-
     );
   }
 }

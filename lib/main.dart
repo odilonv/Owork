@@ -8,15 +8,13 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  final _appRouter = AppRouter();
-
   MyApp({super.key});
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
       title: 'Owork',
       theme: AppTheme.light,
-      routerConfig: _appRouter.config(),
+      routerConfig: appRouter.config(),
     );
   }
 }
