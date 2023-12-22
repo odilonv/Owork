@@ -1,24 +1,20 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:project/src/presentation/widgets/pomodoro_rectangle_widget.dart';
+import 'package:project/src/presentation/widgets/swipe_up_widget.dart';
+import 'package:project/src/presentation/widgets/switch_mode_widget.dart';
+import 'package:project/src/presentation/widgets/timer_not_started_widget.dart';
+import 'package:project/src/utils/constants/nums.dart';
 
 import '../../config/router/app_router.dart';
+import '../../utils/constants/strings.dart';
 
 @RoutePage()
-class HomeView extends StatefulWidget {
+class HomeView extends HookWidget {
   const HomeView({super.key});
-
-  @override
-  State<HomeView> createState() => _HomeViewState();
-}
-
-class _HomeViewState extends State<HomeView> {
-  bool start = false;
-
-  void _startTimer() {
-    setState(() {
-      start = !start;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -26,31 +22,28 @@ class _HomeViewState extends State<HomeView> {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         title: Center(
-          child: Text('OWORK', style: Theme.of(context).textTheme.titleLarge),
+          child: Text(appTitle, style: Theme.of(context).textTheme.titleSmall),
         ),
       ),
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(
-              'JE ME',
-              style: Theme.of(context).textTheme.headlineLarge,
-              textAlign: TextAlign.center,
+            SizedBox(height: topAndBottomMargin),
+            PomodoroRectangleWidget(),
+            SizedBox(height: mediumSpace),
+            SwitchModeWidget(
+              topText: personalized,
+              bottomText: automatic,
             ),
-            Text(
-              'CONCENTRE !',
-              style: Theme.of(context).textTheme.headlineMedium,
-              textAlign: TextAlign.center,
+            Spacer(),
+            TimerNotStartedWidget(
+              firstLine: "${i.toUpperCase()} ME",
+              secondLine: "${focus.toUpperCase()}.",
+              onTap: () => appRouter.push(WorkRoute()),
             ),
-            IconButton(
-              onPressed: () => appRouter.push(const WorkRoute()),
-              icon: Icon(
-                start ? Icons.alarm_on : Icons.circle_outlined,
-                color: start ? Colors.white : Colors.white,
-                size: 150,
-              ),
-            )
+            Spacer(),
+            SwipeUpWidget(swipeUpText: adaptYourProgram.toUpperCase()),
+            SizedBox(height: topAndBottomMargin),
           ],
         ),
       ),
