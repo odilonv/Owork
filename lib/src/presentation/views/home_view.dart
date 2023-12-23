@@ -4,13 +4,13 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:project/src/presentation/widgets/pomodoro_rectangle_widget.dart';
-import 'package:project/src/presentation/widgets/swipe_up_widget.dart';
 import 'package:project/src/presentation/widgets/switch_mode_widget.dart';
 import 'package:project/src/presentation/widgets/timer_not_started_widget.dart';
 import 'package:project/src/utils/constants/nums.dart';
 
 import '../../config/router/app_router.dart';
 import '../../utils/constants/strings.dart';
+import '../widgets/swipe_up_widget .dart';
 
 @RoutePage()
 class HomeView extends HookWidget {
@@ -29,7 +29,10 @@ class HomeView extends HookWidget {
         child: Column(
           children: <Widget>[
             SizedBox(height: topAndBottomMargin),
-            PomodoroRectangleWidget(),
+            PomodoroRectangleWidget(
+              title: pomodoro,
+              firstLine: defaultTotalDuration,
+            ),
             SizedBox(height: mediumSpace),
             SwitchModeWidget(
               topText: personalized,
