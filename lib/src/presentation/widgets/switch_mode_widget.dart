@@ -29,7 +29,7 @@ class SwitchModeWidget extends StatelessWidget {
               topText.toUpperCase(),
               style: const TextStyle(
                 color: Colors.white,
-                fontSize: largeSpace,
+                fontSize: 12.0,
                 fontWeight: FontWeight.bold,
               ),
             ),
