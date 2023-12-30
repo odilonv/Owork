@@ -10,19 +10,34 @@ Owork is a cross-platform mobile application developed in Dart using Flutter. Th
 
 ## Getting Started
 
-Follow these steps to add a new route to the Owork application:
+To set up and run the Owork application, follow these steps:
 
-1. Run the generator using the following command:
+1. Clone the repository to your local machine:
 
    ```bash
-   dart run build_runner watch
+   git clone https://github.com/odilonv/Owork.git
    ```
-Use the [watch] flag to continuously monitor the file system for edits and automatically rebuild as necessary.
 
-2. If you prefer the generator to run once and exit, you can use the following command:
-   
+2. Install the required dependencies using the following command:
+
    ```bash
-   dart run build_runner watch
+   flutter pub get
+   ```
+
+3. To run the application on an Android emulator, use:
+
+   ```bash
+   flutter run
+   ```
+   For iOS, use:
+   ```bash
+   flutter run -d ios
+   ```
+   Ensure that you have set up the necessary emulator or connected device for the platform you are targeting.
+
+4. If you encounter any issues, consider running the following command to troubleshoot and automatically fix some common problems:
+   ```bash
+   flutter doctor
    ```
 
 ## Contributors
@@ -31,7 +46,7 @@ Use the [watch] flag to continuously monitor the file system for edits and autom
 Owork is an open-source project. Feel free to contribute, and your name will be added to the list of contributors.
 
 ## License
-This project is licensed under the [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0)] - see the LICENSE file for details.
+This project is licensed under the [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0)](https://creativecommons.org/licenses/by-nc-sa/4.0/) - see the LICENSE file for details.
 
    
 
