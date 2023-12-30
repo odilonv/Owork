@@ -1,6 +1,6 @@
 # Contributing to Owork
 
-Thank you for your interest in contributing to Owork! We welcome contributions from the community to help make Owork even better.
+Thank you for your interest in contributing to **Owork** ! We welcome contributions from the community to help make Owork even better.
 
 ## Getting Started
 
@@ -14,32 +14,25 @@ Thank you for your interest in contributing to Owork! We welcome contributions f
 3. Create a new branch for your contribution:
 
     ```bash
-    git clone https://github.com/odilonv/Owork.git
+    git checkout -b feature/new-feature
     ```
 
 4. Make your changes and commit them:
-
+    ```bash
     git commit -m "Add new feature"
+    ```
 
 5. Push the changes to your forked repository:
+    ```bash
     git push origin feature/new-feature
-
-    5. Open a pull request from your forked repository to the original repository.
-
-
-
-
-Follow these steps to add a new route to the Owork application:
-
-1. Run the generator using the following command:
-
-    ```bash
-    dart run build_runner watch
     ```
-Use the `[watch]` flag to continuously monitor the file system for edits and automatically rebuild as necessary.
 
-2. If you prefer the generator to run once and exit, you can use the following command:
-   
-    ```bash
-    dart run build_runner watch
-    ```
+6. Open a **pull request** from your forked repository to the original repository.
+
+## Testing
+Before submitting a pull request, make sure your changes pass the existing tests and consider adding new tests if applicable.
+
+## Reporting Issues
+If you encounter any issues or have suggestions, please open an issue on the GitHub repository. Provide detailed information about the problem and steps to reproduce it.
+
+**Happy coding!**

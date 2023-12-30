@@ -40,6 +40,11 @@ To set up and run the Owork application, follow these steps:
    flutter doctor
    ```
 
+## Documentation
+
+- [Contributing Guide](docs/CONTRIBUTING.md)
+- [Adding a Route Tutorial](docs/ADDING_A_ROUTE.md)
+
 ## Contributors
 **Author**: Odilon Vidal
 
