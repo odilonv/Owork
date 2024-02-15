@@ -3,10 +3,15 @@ const String appTitle = 'Owork';
 
 const String pomodoro = 'pomodoro';
 const String totalDuration = 'durée totale';
+const String totalDurationRemaining = 'durée totale restante';
 const String defaultTotalDuration = 'Durée totale : 1h10';
 const String defaultWorkingTime = 'Travail : 30min';
 const String defaultBreakTime = 'Pause : 10min';
 const String remainingTime = 'temps restant';
+
+const String diminutiveSeconds = 'sec';
+const String diminutiveMinutes = 'min';
+const String diminutiveHours = 'h';
 
 const String adaptYourProgram = 'Adapte ton programme';
 
@@ -17,6 +22,7 @@ const String i = 'je';
 const String focus = 'concentre';
 const String focusing = 'concentration';
 
+const String work = 'travail';
 const String pause = 'pause';
 const String resume = 'reprendre';
 

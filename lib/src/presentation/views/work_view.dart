@@ -23,6 +23,7 @@ class WorkView extends StatefulWidget {
 class WorkViewState extends State<WorkView> {
   int _remainingTime = 10; //initial time in seconds
   late Timer _timer;
+  bool paused = false;
 
   @override
   Widget build(BuildContext context) {
@@ -37,13 +38,13 @@ class WorkViewState extends State<WorkView> {
         child: Column(
           children: <Widget>[
             SizedBox(height: topAndBottomMargin),
+            SizedBox(height: topAndBottomMargin),
             PomodoroRectangleWidget(
-                title: totalDuration,
-                firstLine: "01H10",
+                title: '${totalDurationRemaining.toUpperCase()} :',
                 workAndPauseDurationVisible: false),
             Spacer(),
             Text(
-              focusing.toUpperCase(),
+              paused ? '${focusing.toUpperCase()}.' : '${pause.toUpperCase()}.',
               style: const TextStyle(
                   color: Colors.white,
                   fontSize: 11.5,
@@ -52,14 +53,16 @@ class WorkViewState extends State<WorkView> {
             SizedBox(height: 20.0),
             TimerWidget(
               firstLine: "${remainingTime.toUpperCase()} :",
-              secondLine: "${_remainingTime} SEC.",
+              secondLine: "$_remainingTime SEC.",
               onTap: () => appRouter.push(WorkRoute()),
             ),
             Spacer(),
             BottomButtonWidget(
-              bottomButtonText: pause.toUpperCase(),
-              iconButton: Icons.pause_rounded,
-              onPressed: _startTimer,
+              bottomButtonText:
+                  paused ? pause.toUpperCase() : resume.toUpperCase(),
+              iconButton:
+                  paused ? Icons.pause_rounded : Icons.play_arrow_rounded,
+              onPressed: _pauseState,
             ),
             SizedBox(height: topAndBottomMargin),
           ],
@@ -68,13 +71,13 @@ class WorkViewState extends State<WorkView> {
     );
   }
 
-  void _startTimer() {
-    if (_timer != null) {
-      _timer?.cancel();
-    }
+  void _pauseState() {
     setState(() {
-      _remainingTime = 10;
+      paused = !paused;
     });
+  }
+
+  void _startTimer() {
     _timer = Timer.periodic(Duration(seconds: 1), (timer) {
       setState(() {
         if (_remainingTime > 0) {
@@ -87,7 +90,7 @@ class WorkViewState extends State<WorkView> {
   }
 
   void dispose() {
-    if (_timer != null) {
+    if (_timer != null && _timer.isActive) {
       _timer.cancel();
     }
     super.dispose();

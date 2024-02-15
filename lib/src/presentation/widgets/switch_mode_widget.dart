@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../utils/constants/nums.dart';
-
 class SwitchModeWidget extends StatelessWidget {
   final String topText, bottomText;
 

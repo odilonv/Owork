@@ -31,7 +31,7 @@ class HomeView extends HookWidget {
             SizedBox(height: topAndBottomMargin),
             PomodoroRectangleWidget(
               title: pomodoro,
-              firstLine: defaultTotalDuration,
+              handler: true,
             ),
             SizedBox(height: mediumSpace),
             SwitchModeWidget(

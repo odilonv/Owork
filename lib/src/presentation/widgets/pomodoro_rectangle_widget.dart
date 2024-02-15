@@ -2,15 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:project/src/utils/constants/strings.dart';
 
 import '../../utils/constants/nums.dart';
+import '../../utils/time_utils.dart';
 
 class PomodoroRectangleWidget extends StatelessWidget {
-  final String? title, firstLine;
-  final bool workAndPauseDurationVisible;
+  final String? title;
+  final bool workAndPauseDurationVisible, handler;
+  final int totalTime, workingTime, breakTime;
 
   const PomodoroRectangleWidget(
       {Key? key,
       this.title,
-      this.firstLine,
+      this.handler = false,
+      this.totalTime = 70,
+      this.workingTime = 50,
+      this.breakTime = 10,
       this.workAndPauseDurationVisible = true})
       : super(key: key);
 
@@ -38,37 +43,35 @@ class PomodoroRectangleWidget extends StatelessWidget {
         ],
         if (workAndPauseDurationVisible) ...[
           const SizedBox(height: largeSpace)
-        ] else if (title != null && firstLine != null) ...[
+        ] else if (title != null && handler) ...[
           const SizedBox(height: smallSpace)
         ],
-        if (firstLine != null) ...[
+        Text(
+          handler
+              ? '${totalDuration.toUpperCase()} : ${convertMinutesToHoursAndMinutes(totalTime)}'
+              : convertMinutesToHoursAndMinutes(totalTime),
+          style: const TextStyle(
+              color: Colors.white, fontSize: 14.0, fontWeight: FontWeight.bold),
+        ),
+        if (handler && workAndPauseDurationVisible) ...[
+          const SizedBox(height: smallSpace),
+        ],
+        if (workAndPauseDurationVisible) ...[
           Text(
-            firstLine!.toUpperCase(),
+            '${work.toUpperCase()} : $workingTime${diminutiveMinutes.toUpperCase()}',
             style: const TextStyle(
-                color: Colors.white,
-                fontSize: 14.0,
-                fontWeight: FontWeight.bold),
-          ),
-          if (firstLine != null && workAndPauseDurationVisible) ...[
-            const SizedBox(height: smallSpace),
-          ],
-          if (workAndPauseDurationVisible) ...[
-            Text(
-              defaultWorkingTime.toUpperCase(),
-              style: const TextStyle(
-                color: Colors.white,
-                fontSize: 14.0,
-              ),
+              color: Colors.white,
+              fontSize: 14.0,
             ),
-            const SizedBox(height: smallSpace),
-            Text(
-              defaultBreakTime.toUpperCase(),
-              style: const TextStyle(
-                color: Colors.white,
-                fontSize: 14.0,
-              ),
-            )
-          ],
+          ),
+          const SizedBox(height: smallSpace),
+          Text(
+            '${pause.toUpperCase()} : $breakTime${diminutiveMinutes.toUpperCase()}',
+            style: const TextStyle(
+              color: Colors.white,
+              fontSize: 14.0,
+            ),
+          )
         ],
       ]),
     );
