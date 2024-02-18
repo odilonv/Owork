@@ -14,11 +14,19 @@ import '../widgets/swipe_up_widget .dart';
 
 @RoutePage()
 class HomeView extends HookWidget {
-  const HomeView({super.key});
+  final int totalTime, workingTime, breakTime;
+
+  const HomeView(
+      {Key? key,
+      this.totalTime = 70,
+      this.workingTime = 50,
+      this.breakTime = 10})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         title: Center(
@@ -32,11 +40,24 @@ class HomeView extends HookWidget {
             PomodoroRectangleWidget(
               title: pomodoro,
               handler: true,
+              totalTime: totalTime,
+              workingTime: workingTime,
+              breakTime: breakTime,
             ),
             SizedBox(height: mediumSpace),
-            SwitchModeWidget(
-              topText: personalized,
-              bottomText: automatic,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: <Widget>[
+                SwitchModeWidget(
+                  topText: personalized,
+                  bottomText: automatic,
+                ),
+                IconButton(
+                  icon: Icon(Icons.settings),
+                  color: Colors.white,
+                  onPressed: () => appRouter.push(PomodoroRoute()),
+                ),
+              ],
             ),
             Spacer(),
             TimerNotStartedWidget(

@@ -23,7 +23,7 @@ class PomodoroRectangleWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 10.0),
-      width: 260,
+      width: 300,
       decoration: BoxDecoration(
         border: Border.all(
           color: Colors.white,

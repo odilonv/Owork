@@ -10,7 +10,7 @@ class BottomButtonWidget extends StatelessWidget {
   const BottomButtonWidget(
       {Key? key,
       this.bottomButtonText,
-      required this.iconButton,
+      this.iconButton,
       required this.onPressed})
       : super(key: key);
 
@@ -30,7 +30,7 @@ class BottomButtonWidget extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                if (bottomButtonText != null) ...[
+                if (bottomButtonText != null)
                   Text(
                     bottomButtonText!,
                     style: const TextStyle(
@@ -39,13 +39,14 @@ class BottomButtonWidget extends StatelessWidget {
                       fontWeight: FontWeight.w900,
                     ),
                   ),
-                  const SizedBox(width: mediumSpace)
-                ],
-                Icon(
-                  iconButton,
-                  color: Colors.white,
-                  size: 20.0,
-                ),
+                if (bottomButtonText != null && iconButton != null)
+                  const SizedBox(width: mediumSpace), // Added comma here
+                if (iconButton != null)
+                  Icon(
+                    iconButton,
+                    color: Colors.white,
+                    size: 20.0,
+                  ),
               ],
             ),
           ),

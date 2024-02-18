@@ -3,7 +3,7 @@ import 'package:floor/floor.dart';
 
 import 'user.dart';
 
-@Entity(tableName: 'AdaptiveTimer', foreignKeys: [
+@Entity(tableName: 'AdaptiveTimers', foreignKeys: [
   ForeignKey(
     childColumns: ['userId'],
     parentColumns: ['id'],
@@ -51,5 +51,15 @@ class AdaptiveTimer extends Equatable {
       breakTime,
       workTime,
     ];
+  }
+
+  Map<String, dynamic> toMap() {
+    return {
+      'id': id,
+      'userId': userId,
+      'totalTime': totalTime,
+      'breakTime': breakTime,
+      'workTime': workTime,
+    };
   }
 }

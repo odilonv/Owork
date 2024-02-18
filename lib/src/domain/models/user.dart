@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:floor/floor.dart';
 
-@Entity(tableName: 'User')
+@Entity(tableName: 'Users')
 class User extends Equatable {
   @PrimaryKey(autoGenerate: true)
   final int? id;
@@ -12,6 +12,13 @@ class User extends Equatable {
     this.id,
     this.name,
   });
+
+  Map<String, dynamic> toMap() {
+    return {
+      'id': id,
+      'name': name,
+    };
+  }
 
   @override
   bool get stringify => true;

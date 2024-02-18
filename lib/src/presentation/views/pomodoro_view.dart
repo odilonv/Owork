@@ -2,11 +2,13 @@
 
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:project/src/presentation/widgets/demi_fake_timer_widget.dart';
 import 'package:project/src/presentation/widgets/pomodoro_setter_widget.dart';
 import 'package:project/src/utils/constants/nums.dart';
 
+import '../../config/router/app_router.dart';
 import '../../utils/constants/strings.dart';
-import '../widgets/swipe_up_widget .dart';
+import '../widgets/timer_not_started_widget.dart';
 
 @RoutePage()
 class PomodoroView extends StatefulWidget {
@@ -20,6 +22,7 @@ class PomodoroViewState extends State<PomodoroView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         title: Center(
@@ -32,8 +35,19 @@ class PomodoroViewState extends State<PomodoroView> {
             SizedBox(height: topAndBottomMargin),
             PomodoroSetterWidget(
               title: pomodoro,
+              onSave: (totalTime, workingTime, breakTime) {
+                appRouter.push(HomeRoute(
+                  totalTime: totalTime,
+                  workingTime: workingTime,
+                  breakTime: breakTime,
+                ));
+              },
             ),
-            SizedBox(height: topAndBottomMargin),
+            Spacer(),
+            DemiFakeTimerWidget(
+              firstLine: "${i.toUpperCase()} ME",
+              secondLine: "${focus.toUpperCase()}.",
+            ),
           ],
         ),
       ),
