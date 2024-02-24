@@ -2,28 +2,31 @@
 
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:project/src/presentation/widgets/demi_fake_timer_widget.dart';
 import 'package:project/src/presentation/widgets/pomodoro_setter_widget.dart';
 import 'package:project/src/utils/constants/nums.dart';
 
 import '../../config/router/app_router.dart';
 import '../../utils/constants/strings.dart';
-import '../widgets/timer_not_started_widget.dart';
 
 @RoutePage()
-class PomodoroView extends StatefulWidget {
-  const PomodoroView({super.key});
+class PomodoroView extends HookWidget {
+  final int totalTime, workingTime, breakTime;
 
-  @override
-  PomodoroViewState createState() => PomodoroViewState();
-}
+  const PomodoroView(
+      {Key? key,
+      required this.totalTime,
+      required this.workingTime,
+      required this.breakTime})
+      : super(key: key);
 
-class PomodoroViewState extends State<PomodoroView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         backgroundColor: Colors.transparent,
         title: Center(
           child: Text(appTitle, style: Theme.of(context).textTheme.titleSmall),
@@ -35,6 +38,9 @@ class PomodoroViewState extends State<PomodoroView> {
             SizedBox(height: topAndBottomMargin),
             PomodoroSetterWidget(
               title: pomodoro,
+              totalTime: totalTime,
+              breakTime: breakTime,
+              workingTime: workingTime,
               onSave: (totalTime, workingTime, breakTime) {
                 appRouter.push(HomeRoute(
                   totalTime: totalTime,

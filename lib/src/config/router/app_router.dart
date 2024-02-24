@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:flutter/foundation.dart';
 
 import '../../presentation/views/home_view.dart';
 import '../../presentation/views/work_view.dart';

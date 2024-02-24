@@ -13,8 +13,15 @@ class PomodoroSetterWidget extends StatelessWidget {
   final TextEditingController totalTimeController = TextEditingController();
   final TextEditingController workingTimeController = TextEditingController();
   final TextEditingController breakTimeController = TextEditingController();
+  final int breakTime, workingTime, totalTime;
 
-  PomodoroSetterWidget({Key? key, this.title, required this.onSave})
+  PomodoroSetterWidget(
+      {Key? key,
+      this.title,
+      required this.onSave,
+      required this.totalTime,
+      required this.workingTime,
+      required this.breakTime})
       : super(key: key);
 
   @override
@@ -52,7 +59,11 @@ class PomodoroSetterWidget extends StatelessWidget {
                   fontWeight: FontWeight.w600),
             ),
             const SizedBox(height: mediumSpace),
-            TimeInputByTextFieldWidget(controller: totalTimeController),
+            TimeInputByTextFieldWidget(
+              controller: totalTimeController,
+              initialValue: totalTime,
+              displayHours: false,
+            ),
             Spacer(),
             Row(
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -73,7 +84,10 @@ class PomodoroSetterWidget extends StatelessWidget {
                       fontWeight: FontWeight.w600),
                 ),
                 TimeInputByTextFieldWidget(
-                    controller: workingTimeController, displayHours: false),
+                  initialValue: workingTime,
+                  controller: workingTimeController,
+                  displayHours: false,
+                ),
               ],
             ),
             Spacer(),
@@ -96,7 +110,10 @@ class PomodoroSetterWidget extends StatelessWidget {
                       fontWeight: FontWeight.w600),
                 ),
                 TimeInputByTextFieldWidget(
-                    controller: breakTimeController, displayHours: false),
+                  initialValue: breakTime,
+                  controller: breakTimeController,
+                  displayHours: false,
+                ),
               ],
             ),
             Spacer(),

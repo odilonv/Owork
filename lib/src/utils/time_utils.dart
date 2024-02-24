@@ -5,3 +5,8 @@ String convertMinutesToHoursAndMinutes(int minutes) {
   int remainingMinutes = minutes % 60;
   return '$hours${diminutiveHours.toUpperCase()}$remainingMinutes';
 }
+
+int convertToMinutes(String hours, String minutes) {
+  int totalMinutes = int.parse(hours) * 60 + int.parse(minutes);
+  return totalMinutes;
+}

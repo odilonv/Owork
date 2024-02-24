@@ -28,6 +28,7 @@ class HomeView extends HookWidget {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         backgroundColor: Colors.transparent,
         title: Center(
           child: Text(appTitle, style: Theme.of(context).textTheme.titleSmall),
@@ -55,7 +56,11 @@ class HomeView extends HookWidget {
                 IconButton(
                   icon: Icon(Icons.settings),
                   color: Colors.white,
-                  onPressed: () => appRouter.push(PomodoroRoute()),
+                  onPressed: () => appRouter.push(PomodoroRoute(
+                    totalTime: totalTime,
+                    workingTime: workingTime,
+                    breakTime: breakTime,
+                  )),
                 ),
               ],
             ),
@@ -63,7 +68,11 @@ class HomeView extends HookWidget {
             TimerNotStartedWidget(
               firstLine: "${i.toUpperCase()} ME",
               secondLine: "${focus.toUpperCase()}.",
-              onTap: () => appRouter.push(WorkRoute()),
+              onTap: () => appRouter.push(WorkRoute(
+                totalTime: totalTime,
+                workingTime: workingTime,
+                breakTime: breakTime,
+              )),
             ),
             Spacer(),
             SwipeUpWidget(swipeUpText: adaptYourProgram.toUpperCase()),

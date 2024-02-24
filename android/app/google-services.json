@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "746756454279",
+    "project_id": "owork-app",
+    "storage_bucket": "owork-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:746756454279:android:da8d776967413b2b834522",
+        "android_client_info": {
+          "package_name": "com.example.project"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAHmeE4YOLUj2og3vugyg-PlMOAnOiKFM8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

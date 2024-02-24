@@ -11,16 +11,29 @@ final minLastProvider = StateProvider<String>((ref) => "00");
 class TimeInputByTextFieldWidget extends HookConsumerWidget {
   final bool displayHours;
   final TextEditingController controller;
+  final int initialValue;
 
   TimeInputByTextFieldWidget(
-      {Key? key, this.displayHours = true, required this.controller})
+      {Key? key,
+      this.displayHours = true,
+      required this.controller,
+      this.initialValue = 00})
       : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final focus = useFocusNode();
+    TextEditingController controllerHours = TextEditingController();
 
     useEffect(() {
+      if (displayHours && initialValue > 59) {
+        int hours = initialValue ~/ 60;
+        int minutes = initialValue % 60;
+
+        controller.text = minutes.toString();
+      } else {
+        controller.text = initialValue.toString();
+      }
       final listener = () {
         formatTime(
           context,
@@ -111,11 +124,7 @@ class TimeInputByTextFieldWidget extends HookConsumerWidget {
     if (ref.read(lastProvider.notifier).state == controller.text) {
       return;
     }
-    if (controller.text.isEmpty) {
-      controller.text = "00";
-    }
     ref.read(lastProvider.notifier).state = controller.text;
-
     if (controller.text.length == 2) {
       controller.text = controller.text[2];
       controller.selection = TextSelection.fromPosition(
