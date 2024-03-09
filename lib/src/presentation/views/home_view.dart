@@ -75,7 +75,10 @@ class HomeView extends HookWidget {
               )),
             ),
             Spacer(),
-            SwipeUpWidget(swipeUpText: adaptYourProgram.toUpperCase()),
+            SwipeUpWidget(
+              swipeUpText: adaptYourProgram.toUpperCase(),
+              onSwipe: () => appRouter.push(ConnectRoute()),
+            ),
             SizedBox(height: topAndBottomMargin),
           ],
         ),

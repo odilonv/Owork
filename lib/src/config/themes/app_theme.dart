@@ -10,6 +10,8 @@ abstract class AppTheme {
         textTheme: const TextTheme(
           titleLarge:
               TextStyle(fontFamily: 'Akira', color: Colors.white, fontSize: 40),
+          titleMedium:
+              TextStyle(fontFamily: 'Akira', color: Colors.white, fontSize: 25),
           titleSmall:
               TextStyle(fontFamily: 'Akira', color: Colors.white, fontSize: 15),
           bodyLarge: TextStyle(fontFamily: 'Montserrat', color: Colors.white),

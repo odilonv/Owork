@@ -4,7 +4,6 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:project/src/presentation/widgets/bottom_button_widget.dart';
-import 'package:project/src/presentation/widgets/pomodoro_rectangle_widget.dart';
 import 'package:project/src/presentation/widgets/timer_widget.dart';
 import 'package:project/src/utils/constants/nums.dart';
 import '../../utils/constants/strings.dart';

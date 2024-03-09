@@ -26,6 +26,9 @@ const String work = 'travail';
 const String pause = 'pause';
 const String resume = 'reprendre';
 
+const String username = "nom d'utilisateur";
+const String password = "mot de passe";
+
 // Networking and APIs
 const String baseUrl = '';
 const String defaultApiKey = '';
