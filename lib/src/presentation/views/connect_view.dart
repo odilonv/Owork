@@ -6,11 +6,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:project/src/presentation/widgets/circle_logo_widget.dart';
+import 'package:project/src/presentation/widgets/footer_widget.dart';
 import 'package:project/src/presentation/widgets/textfield_widget.dart';
 import 'package:project/src/utils/constants/nums.dart';
 
 import '../../utils/constants/strings.dart';
 import '../../utils/text_utils.dart';
+import '../widgets/large_button_widget.dart';
+import '../widgets/text_separator_widget.dart';
 
 @RoutePage()
 class ConnectView extends HookWidget {
@@ -76,66 +80,11 @@ class ConnectView extends HookWidget {
                   ),
                 ),
                 SizedBox(height: largeSpace),
-                Container(
-                  width: double.infinity,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      // TO DO
-                    },
-                    child: Text(
-                      'Connexion',
-                      style: TextStyle(
-                        color: Colors.red,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 16.0,
-                      ),
-                    ),
-                    style: ButtonStyle(
-                      backgroundColor:
-                          MaterialStateProperty.all<Color>(Colors.white),
-                      overlayColor: MaterialStateProperty.resolveWith<Color>(
-                        (Set<MaterialState> states) {
-                          if (states.contains(MaterialState.pressed)) {
-                            return Colors.red.withOpacity(0.1);
-                          }
-                          return Colors.transparent;
-                        },
-                      ),
-                      shape: MaterialStateProperty.all<OutlinedBorder>(
-                        RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10.0),
-                        ),
-                      ),
-                    ),
-                  ),
+                LargeButtonWidget(
+                  text: 'Connexion',
+                  onPressed: () {},
                 ),
-                Padding(
-                  padding: EdgeInsets.symmetric(vertical: 40),
-                  child: Row(
-                    children: <Widget>[
-                      Expanded(
-                        child: Divider(
-                          color: Colors.white,
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 10),
-                        child: Text(
-                          "OU",
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontFamily: 'Montserrat',
-                              fontSize: 12.0),
-                        ),
-                      ),
-                      Expanded(
-                        child: Divider(
-                          color: Colors.white,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
+                TextSeparatorWidget(text: "OU"),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
@@ -149,68 +98,21 @@ class ConnectView extends HookWidget {
                       ),
                     ),
                     SizedBox(width: largeSpace),
-                    Container(
-                      width: 35,
-                      height: 35,
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        shape: BoxShape.circle,
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.all(5.0),
-                        child: SvgPicture.asset(
-                          'assets/google_logo.svg',
-                          width: 25,
-                          height: 25,
-                        ),
-                      ),
-                    ),
+                    CircleLogoWidget(
+                        image: 'assets/google_logo.svg', onPressed: () => {}),
                     SizedBox(width: largeSpace),
-                    Container(
-                      width: 35,
-                      height: 35,
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        shape: BoxShape.circle,
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.all(5.0),
-                        child: SvgPicture.asset(
-                          'assets/apple_logo.svg',
-                          width: 25,
-                          height: 25,
-                        ),
-                      ),
-                    ),
+                    CircleLogoWidget(
+                        image: 'assets/apple_logo.svg', onPressed: () => {}),
                   ],
                 ),
               ],
             ),
           ),
           Spacer(),
-          Divider(color: Colors.white),
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 8.0),
-            child: RichText(
-              text: TextSpan(
-                children: <TextSpan>[
-                  TextSpan(
-                    text: 'Vous n’avez pas de compte ? ',
-                    style: TextStyle(fontSize: 14.0, fontFamily: 'Montserrat'),
-                  ),
-                  TextSpan(
-                    text: 'Inscrivez-vous.',
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        decoration: TextDecoration.underline,
-                        fontSize: 14.0,
-                        fontFamily: 'Montserrat'),
-                  ),
-                ],
-              ),
-            ),
-          ),
-          SizedBox(height: largeSpace),
+          FooterWidget(
+            text: 'Vous n’avez pas de compte ? ',
+            boldText: 'Inscrivez-vous.',
+          )
         ],
       ),
     );

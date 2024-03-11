@@ -2,8 +2,6 @@
 
 import 'package:flutter/material.dart';
 
-import '../../utils/constants/nums.dart';
-
 class TextfieldWidget extends StatefulWidget {
   final String? title;
 

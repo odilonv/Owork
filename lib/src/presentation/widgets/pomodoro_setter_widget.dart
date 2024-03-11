@@ -1,8 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:project/src/presentation/widgets/bottom_button_widget.dart';
-import 'package:project/src/utils/constants/strings.dart';
 
 import '../../utils/constants/nums.dart';
 import 'time_input_by_textfield_widget.dart';
