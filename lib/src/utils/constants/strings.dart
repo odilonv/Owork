@@ -13,6 +13,15 @@ const String diminutiveSeconds = 'sec';
 const String diminutiveMinutes = 'min';
 const String diminutiveHours = 'h';
 
+const String firstSentenceConnectView =
+    'Vous souhaitez être plus productif ?\nAlors connectez-vous.';
+const String forgottenPassword = 'mot de passe oublié ?';
+const String continueWith = 'continuez avec';
+const String dontHaveAnAccount = 'vous n’avez pas de compte ?';
+const String signUp = 'inscrivez-vous';
+const String signIn = 'connexion';
+const String or = 'ou';
+
 const String adaptYourProgram = 'Adapte ton programme';
 
 const String personalized = 'Personnalisé';

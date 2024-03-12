@@ -1,11 +1,8 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, sort_child_properties_last
 
 import 'package:auto_route/auto_route.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:project/src/presentation/widgets/circle_logo_widget.dart';
 import 'package:project/src/presentation/widgets/footer_widget.dart';
 import 'package:project/src/presentation/widgets/textfield_widget.dart';
@@ -42,7 +39,7 @@ class ConnectView extends HookWidget {
                 Align(
                   alignment: Alignment.centerLeft,
                   child: Text(
-                    'Vous souhaitez être plus productif ?\nAlors connectez-vous.',
+                    firstSentenceConnectView,
                     style: const TextStyle(
                         color: Colors.white,
                         fontSize: 14.0,
@@ -62,7 +59,7 @@ class ConnectView extends HookWidget {
                       crossAxisAlignment: CrossAxisAlignment.end,
                       children: [
                         Text(
-                          'Mot de passe oublié ?',
+                          capitalize(forgottenPassword),
                           style: const TextStyle(
                               color: Colors.white,
                               fontSize: 11.0,
@@ -81,15 +78,15 @@ class ConnectView extends HookWidget {
                 ),
                 SizedBox(height: largeSpace),
                 LargeButtonWidget(
-                  text: 'Connexion',
+                  text: capitalize(signIn),
                   onPressed: () {},
                 ),
-                TextSeparatorWidget(text: "OU"),
+                TextSeparatorWidget(text: or.toUpperCase()),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     Text(
-                      "Continuez avec",
+                      capitalize(continueWith),
                       style: TextStyle(
                         color: Colors.white,
                         fontFamily: 'Montserrat',
@@ -110,8 +107,8 @@ class ConnectView extends HookWidget {
           ),
           Spacer(),
           FooterWidget(
-            text: 'Vous n’avez pas de compte ? ',
-            boldText: 'Inscrivez-vous.',
+            text: '${capitalize(dontHaveAnAccount)} ',
+            boldText: '${capitalize(signUp)}.',
           )
         ],
       ),

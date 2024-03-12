@@ -6,8 +6,10 @@ import '../../utils/constants/nums.dart';
 
 class FooterWidget extends StatelessWidget {
   final String? text, boldText, onPressed;
+  final Color? color;
 
-  const FooterWidget({Key? key, this.text, this.boldText, this.onPressed})
+  const FooterWidget(
+      {Key? key, this.text, this.boldText, this.color, this.onPressed})
       : super(key: key);
 
   @override
@@ -22,7 +24,10 @@ class FooterWidget extends StatelessWidget {
               children: <TextSpan>[
                 TextSpan(
                   text: text,
-                  style: TextStyle(fontSize: 14.0, fontFamily: 'Montserrat'),
+                  style: TextStyle(
+                      fontSize: 14.0,
+                      fontFamily: 'Montserrat',
+                      color: color ?? Colors.white),
                 ),
                 TextSpan(
                   text: boldText,
@@ -30,7 +35,8 @@ class FooterWidget extends StatelessWidget {
                       fontWeight: FontWeight.bold,
                       decoration: TextDecoration.underline,
                       fontSize: 14.0,
-                      fontFamily: 'Montserrat'),
+                      fontFamily: 'Montserrat',
+                      color: color ?? Colors.white),
                 ),
               ],
             ),

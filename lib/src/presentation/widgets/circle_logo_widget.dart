@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-import '../../utils/constants/nums.dart';
-
 class CircleLogoWidget extends StatelessWidget {
   final String image;
   final Color? backgroundColor;
