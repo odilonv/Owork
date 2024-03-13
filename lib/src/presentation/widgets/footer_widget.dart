@@ -5,7 +5,8 @@ import 'package:flutter/material.dart';
 import '../../utils/constants/nums.dart';
 
 class FooterWidget extends StatelessWidget {
-  final String? text, boldText, onPressed;
+  final String? text, boldText;
+  final VoidCallback? onPressed;
   final Color? color;
 
   const FooterWidget(
@@ -19,9 +20,9 @@ class FooterWidget extends StatelessWidget {
         Divider(color: Colors.white),
         Padding(
           padding: const EdgeInsets.symmetric(vertical: 8.0),
-          child: RichText(
-            text: TextSpan(
-              children: <TextSpan>[
+          child: Text.rich(
+            TextSpan(
+              children: <InlineSpan>[
                 TextSpan(
                   text: text,
                   style: TextStyle(
@@ -29,14 +30,20 @@ class FooterWidget extends StatelessWidget {
                       fontFamily: 'Montserrat',
                       color: color ?? Colors.white),
                 ),
-                TextSpan(
-                  text: boldText,
-                  style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      decoration: TextDecoration.underline,
-                      fontSize: 14.0,
-                      fontFamily: 'Montserrat',
-                      color: color ?? Colors.white),
+                WidgetSpan(
+                  child: InkWell(
+                    onTap: onPressed,
+                    child: Text(
+                      boldText ?? '',
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          decoration: TextDecoration.underline,
+                          decorationColor: color ?? Colors.white,
+                          fontSize: 14.0,
+                          fontFamily: 'Montserrat',
+                          color: color ?? Colors.white),
+                    ),
+                  ),
                 ),
               ],
             ),

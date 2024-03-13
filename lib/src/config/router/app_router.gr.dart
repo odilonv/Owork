@@ -15,12 +15,6 @@ abstract class _$AppRouter extends RootStackRouter {
 
   @override
   final Map<String, PageFactory> pagesMap = {
-    ConnectRoute.name: (routeData) {
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const ConnectView(),
-      );
-    },
     HomeRoute.name: (routeData) {
       final args =
           routeData.argsAs<HomeRouteArgs>(orElse: () => const HomeRouteArgs());
@@ -46,6 +40,18 @@ abstract class _$AppRouter extends RootStackRouter {
         ),
       );
     },
+    SignInRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const SignInView(),
+      );
+    },
+    SignUpRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const SignUpView(),
+      );
+    },
     WorkRoute.name: (routeData) {
       final args = routeData.argsAs<WorkRouteArgs>();
       return AutoRoutePage<dynamic>(
@@ -59,20 +65,6 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
   };
-}
-
-/// generated route for
-/// [ConnectView]
-class ConnectRoute extends PageRouteInfo<void> {
-  const ConnectRoute({List<PageRouteInfo>? children})
-      : super(
-          ConnectRoute.name,
-          initialChildren: children,
-        );
-
-  static const String name = 'ConnectRoute';
-
-  static const PageInfo<void> page = PageInfo<void>(name);
 }
 
 /// generated route for
@@ -168,6 +160,34 @@ class PomodoroRouteArgs {
   String toString() {
     return 'PomodoroRouteArgs{key: $key, totalTime: $totalTime, workingTime: $workingTime, breakTime: $breakTime}';
   }
+}
+
+/// generated route for
+/// [SignInView]
+class SignInRoute extends PageRouteInfo<void> {
+  const SignInRoute({List<PageRouteInfo>? children})
+      : super(
+          SignInRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'SignInRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [SignUpView]
+class SignUpRoute extends PageRouteInfo<void> {
+  const SignUpRoute({List<PageRouteInfo>? children})
+      : super(
+          SignUpRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'SignUpRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
 }
 
 /// generated route for

@@ -4,7 +4,8 @@ import 'package:flutter/foundation.dart';
 import '../../presentation/views/home_view.dart';
 import '../../presentation/views/work_view.dart';
 import '../../presentation/views/pomodoro_view.dart';
-import '../../presentation/views/connect_view.dart';
+import '../../presentation/views/sign_in_view.dart';
+import '../../presentation/views/sign_up_view.dart';
 
 part 'app_router.gr.dart';
 
@@ -16,9 +17,10 @@ class AppRouter extends _$AppRouter {
         AutoRoute(page: WorkRoute.page),
         AutoRoute(page: PomodoroRoute.page),
         CustomRoute(
-          page: ConnectRoute.page,
+          page: SignInRoute.page,
           transitionsBuilder: TransitionsBuilders.slideBottom,
         ),
+        AutoRoute(page: SignUpRoute.page),
       ];
 }
 

@@ -4,13 +4,15 @@ import 'package:flutter/material.dart';
 
 class TextSeparatorWidget extends StatelessWidget {
   final String text;
+  final double? space;
 
-  const TextSeparatorWidget({Key? key, required this.text}) : super(key: key);
+  const TextSeparatorWidget({Key? key, required this.text, this.space})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(vertical: 40),
+      padding: EdgeInsets.symmetric(vertical: space ?? 40),
       child: Row(
         children: <Widget>[
           Expanded(

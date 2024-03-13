@@ -10,7 +10,7 @@ import 'package:project/src/utils/constants/nums.dart';
 
 import '../../config/router/app_router.dart';
 import '../../utils/constants/strings.dart';
-import '../widgets/swipe_up_widget .dart';
+import '../widgets/swipe_widget .dart';
 
 @RoutePage()
 class HomeView extends HookWidget {
@@ -75,9 +75,10 @@ class HomeView extends HookWidget {
               )),
             ),
             Spacer(),
-            SwipeUpWidget(
-              swipeUpText: adaptYourProgram.toUpperCase(),
-              onSwipe: () => appRouter.push(ConnectRoute()),
+            SwipeWidget(
+              swipeDownText: adaptYourProgram.toUpperCase(),
+              onSwipe: () => appRouter.push(SignInRoute()),
+              icon: Icons.keyboard_arrow_up_rounded,
             ),
             SizedBox(height: topAndBottomMargin),
           ],
