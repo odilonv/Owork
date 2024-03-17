@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../utils/snackBar_custom.dart';
+
 class PasswordTextfieldWidget extends StatefulWidget {
   final String? title;
 
@@ -11,16 +13,19 @@ class PasswordTextfieldWidget extends StatefulWidget {
 }
 
 class _PasswordTextfieldWidgetState extends State<PasswordTextfieldWidget> {
+  final TextEditingController _controller = TextEditingController();
+
   String? _password;
   bool _obscureText = true;
+  bool _isValid = true;
 
-  String? _validatePassword(String? value) {
+  bool _validatePassword(String? value) {
     Pattern pattern = r'^(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z]).{8,}$';
     RegExp regex = new RegExp(pattern.toString());
     if (!regex.hasMatch(value!))
-      return 'Le mot de passe doit contenir au moins une majuscule, un caractère spécial, un chiffre et doit avoir au moins 8 caractères';
+      return false;
     else
-      return null;
+      return true;
   }
 
   void _togglePasswordVisibility() {
@@ -32,6 +37,7 @@ class _PasswordTextfieldWidgetState extends State<PasswordTextfieldWidget> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      controller: _controller,
       obscureText: _obscureText,
       decoration: InputDecoration(
         labelText: widget.title,
@@ -50,15 +56,43 @@ class _PasswordTextfieldWidgetState extends State<PasswordTextfieldWidget> {
         ),
         fillColor: Colors.white.withOpacity(0.15),
         filled: true,
-        suffixIcon: IconButton(
-          icon: Icon(
-            _obscureText ? Icons.visibility : Icons.visibility_off,
-            color: Colors.white,
-          ),
-          onPressed: _togglePasswordVisibility,
+        suffixIcon: Row(
+          mainAxisSize: MainAxisSize.min, // This is important
+          children: <Widget>[
+            !_isValid
+                ? IconButton(
+                    icon: Icon(Icons.warning_rounded, color: Colors.white),
+                    onPressed: () {
+                      ScaffoldMessenger.of(context).showSnackBar(SnackBarCustom(
+                              message:
+                                  'Le mot de passe doit contenir :\n- au moins 8 caractères\n- une lettre majuscule\n- une lettre minuscule\n- un chiffre\n- un caractère spécial')
+                          .snackBar);
+                    },
+                  )
+                : Container(),
+            IconButton(
+              icon: Icon(
+                _obscureText ? Icons.visibility : Icons.visibility_off,
+                color: Colors.white,
+              ),
+              onPressed: _togglePasswordVisibility,
+            ),
+          ],
         ),
       ),
-      validator: _validatePassword,
+      onChanged: (value) {
+        setState(() {
+          _isValid = _validatePassword(value);
+        });
+      },
+      onFieldSubmitted: (value) {
+        if (!_validatePassword(value)) {
+          ScaffoldMessenger.of(context).showSnackBar(SnackBarCustom(
+                  message:
+                      'Le mot de passe doit contenir :\n- au moins 8 caractères\n- une lettre majuscule\n- une lettre minuscule\n- un chiffre\n- un caractère spécial')
+              .snackBar);
+        }
+      },
       onSaved: (value) {
         _password = value;
       },

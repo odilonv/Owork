@@ -1,18 +1,18 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:email_validator/email_validator.dart';
+import 'package:project/src/utils/snackBar_custom.dart';
 
-import '../../../utils/snackBar_custom.dart';
-
-class BasicTextfieldWidget extends StatefulWidget {
+class EmailTextfieldWidget extends StatefulWidget {
   final String? title;
-  BasicTextfieldWidget({Key? key, this.title}) : super(key: key);
+  EmailTextfieldWidget({Key? key, this.title}) : super(key: key);
 
   @override
-  _BasicTextfieldWidgetState createState() => _BasicTextfieldWidgetState();
+  _EmailTextfieldWidgetState createState() => _EmailTextfieldWidgetState();
 }
 
-class _BasicTextfieldWidgetState extends State<BasicTextfieldWidget> {
+class _EmailTextfieldWidgetState extends State<EmailTextfieldWidget> {
   final TextEditingController _controller = TextEditingController();
   bool _isValid = true;
 
@@ -42,7 +42,8 @@ class _BasicTextfieldWidgetState extends State<BasicTextfieldWidget> {
                 icon: Icon(Icons.warning_rounded, color: Colors.white),
                 onPressed: () {
                   ScaffoldMessenger.of(context).showSnackBar(SnackBarCustom(
-                          message: 'Format valide : Minimum 3 lettres.')
+                          message:
+                              'Format d\'email valide : example@example.com')
                       .snackBar);
                 },
               )
@@ -50,16 +51,17 @@ class _BasicTextfieldWidgetState extends State<BasicTextfieldWidget> {
       ),
       onChanged: (value) {
         setState(() {
-          _isValid = value.length >= 3;
+          _isValid = EmailValidator.validate(value);
         });
       },
       onFieldSubmitted: (value) {
         if (!_isValid) {
-          ScaffoldMessenger.of(context).showSnackBar(
-              SnackBarCustom(message: 'Format valide : Minimum 3 lettres.')
-                  .snackBar);
+          ScaffoldMessenger.of(context).showSnackBar(SnackBarCustom(
+                  message: 'Format d\'email valide : example@example.com')
+              .snackBar);
         }
       },
+      keyboardType: TextInputType.emailAddress,
     );
   }
 }

@@ -7,6 +7,7 @@ import 'package:project/src/config/router/app_router.dart';
 import 'package:project/src/presentation/widgets/circle_logo_widget.dart';
 import 'package:project/src/presentation/widgets/footer_widget.dart';
 import 'package:project/src/presentation/widgets/textfields/password_textfield_widget.dart';
+import 'package:project/src/presentation/widgets/textfields/email_textfield_widget.dart';
 import 'package:project/src/utils/constants/nums.dart';
 
 import '../../utils/constants/strings.dart';
@@ -55,7 +56,7 @@ class SignUpView extends HookWidget {
                 SizedBox(height: largeSpace),
                 BasicTextfieldWidget(title: capitalize('prénom')),
                 SizedBox(height: largeSpace),
-                BasicTextfieldWidget(title: capitalize('mail')),
+                EmailTextfieldWidget(title: capitalize('mail')),
                 SizedBox(height: largeSpace),
                 PasswordTextfieldWidget(title: capitalize(password)),
                 SizedBox(height: largeSpace),
