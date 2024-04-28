@@ -14,11 +14,12 @@ class LargeButtonWidget extends StatelessWidget {
       child: ElevatedButton(
         onPressed: onPressed,
         style: ButtonStyle(
-          backgroundColor: MaterialStateProperty.all<Color>(Colors.white),
+          backgroundColor:
+              MaterialStateProperty.all<Color>(Theme.of(context).primaryColor),
           overlayColor: MaterialStateProperty.resolveWith<Color>(
             (Set<MaterialState> states) {
               if (states.contains(MaterialState.pressed)) {
-                return Colors.red.withOpacity(0.1);
+                return Theme.of(context).primaryColor;
               }
               return Colors.transparent;
             },
@@ -31,8 +32,8 @@ class LargeButtonWidget extends StatelessWidget {
         ),
         child: Text(
           text ?? 'Default Text',
-          style: const TextStyle(
-            color: Colors.red,
+          style: TextStyle(
+            color: Theme.of(context).hintColor,
             fontWeight: FontWeight.bold,
             fontSize: 16.0,
           ),

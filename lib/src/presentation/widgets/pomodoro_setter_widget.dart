@@ -30,7 +30,7 @@ class PomodoroSetterWidget extends StatelessWidget {
       height: 450,
       decoration: BoxDecoration(
         border: Border.all(
-          color: Colors.white,
+          color: Theme.of(context).primaryColor,
           width: 0.3,
         ),
         borderRadius: BorderRadius.circular(10.0),
@@ -42,8 +42,8 @@ class PomodoroSetterWidget extends StatelessWidget {
               Center(
                 child: Text(
                   title!.toUpperCase(),
-                  style: const TextStyle(
-                    color: Colors.white,
+                  style: TextStyle(
+                    color: Theme.of(context).primaryColor,
                     fontSize: 11.0,
                   ),
                 ),
@@ -51,8 +51,8 @@ class PomodoroSetterWidget extends StatelessWidget {
             Spacer(),
             Text(
               'Durée totale :',
-              style: const TextStyle(
-                  color: Colors.white,
+              style: TextStyle(
+                  color: Theme.of(context).primaryColor,
                   fontSize: 18.0,
                   fontWeight: FontWeight.w600),
             ),
@@ -69,15 +69,15 @@ class PomodoroSetterWidget extends StatelessWidget {
               children: <Widget>[
                 Text(
                   '      Travail',
-                  style: const TextStyle(
-                      color: Colors.white,
+                  style: TextStyle(
+                      color: Theme.of(context).primaryColor,
                       fontSize: 20.0,
                       fontWeight: FontWeight.w600),
                 ),
                 Text(
                   ':',
-                  style: const TextStyle(
-                      color: Colors.white,
+                  style: TextStyle(
+                      color: Theme.of(context).primaryColor,
                       fontSize: 20.0,
                       fontWeight: FontWeight.w600),
                 ),
@@ -95,15 +95,15 @@ class PomodoroSetterWidget extends StatelessWidget {
               children: <Widget>[
                 Text(
                   '      Pause',
-                  style: const TextStyle(
-                      color: Colors.white,
+                  style: TextStyle(
+                      color: Theme.of(context).primaryColor,
                       fontSize: 20.0,
                       fontWeight: FontWeight.w600),
                 ),
                 Text(
                   ':',
-                  style: const TextStyle(
-                      color: Colors.white,
+                  style: TextStyle(
+                      color: Theme.of(context).primaryColor,
                       fontSize: 20.0,
                       fontWeight: FontWeight.w600),
                 ),
@@ -133,8 +133,8 @@ class PomodoroSetterWidget extends StatelessWidget {
                     ),
                     child: Text(
                       "Sauvegarder",
-                      style: const TextStyle(
-                        color: Colors.white,
+                      style: TextStyle(
+                        color: Theme.of(context).primaryColor,
                         fontSize: 16,
                         fontWeight: FontWeight.w900,
                       ),

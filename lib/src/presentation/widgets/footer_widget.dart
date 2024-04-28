@@ -17,7 +17,7 @@ class FooterWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
-        Divider(color: Colors.white),
+        Divider(color: Theme.of(context).primaryColor),
         Padding(
           padding: const EdgeInsets.symmetric(vertical: 8.0),
           child: Text.rich(
@@ -28,7 +28,7 @@ class FooterWidget extends StatelessWidget {
                   style: TextStyle(
                       fontSize: 14.0,
                       fontFamily: 'Montserrat',
-                      color: color ?? Colors.white),
+                      color: color ?? Theme.of(context).primaryColor),
                 ),
                 WidgetSpan(
                   child: InkWell(
@@ -38,10 +38,11 @@ class FooterWidget extends StatelessWidget {
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
                           decoration: TextDecoration.underline,
-                          decorationColor: color ?? Colors.white,
+                          decorationColor:
+                              color ?? Theme.of(context).primaryColor,
                           fontSize: 14.0,
                           fontFamily: 'Montserrat',
-                          color: color ?? Colors.white),
+                          color: color ?? Theme.of(context).primaryColor),
                     ),
                   ),
                 ),

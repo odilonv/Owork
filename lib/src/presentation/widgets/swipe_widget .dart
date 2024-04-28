@@ -38,20 +38,20 @@ class SwipeWidget extends StatelessWidget {
                 Text(
                   swipeUpText!,
                   style: TextStyle(
-                    color: color ?? Colors.white,
+                    color: color ?? Theme.of(context).primaryColor,
                     fontSize: 11.5,
                   ),
                 ),
               Icon(
                 icon,
-                color: color ?? Colors.white,
+                color: color ?? Theme.of(context).primaryColor,
                 size: iconSize ?? 30.0,
               ),
               if (swipeDownText != null)
                 Text(
                   swipeDownText!,
                   style: TextStyle(
-                    color: color ?? Colors.white,
+                    color: color ?? Theme.of(context).primaryColor,
                     fontSize: 11.5,
                   ),
                 ),

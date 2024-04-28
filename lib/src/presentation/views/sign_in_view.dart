@@ -51,8 +51,8 @@ class SignInView extends HookWidget {
                   alignment: Alignment.centerLeft,
                   child: Text(
                     firstSentenceSignInView,
-                    style: const TextStyle(
-                        color: Colors.white,
+                    style: TextStyle(
+                        color: Theme.of(context).primaryColor,
                         fontSize: 14.0,
                         fontWeight: FontWeight.bold,
                         fontFamily: 'Montserrat'),
@@ -74,8 +74,8 @@ class SignInView extends HookWidget {
                       children: [
                         Text(
                           capitalize(forgottenPassword),
-                          style: const TextStyle(
-                              color: Colors.white,
+                          style: TextStyle(
+                              color: Theme.of(context).primaryColor,
                               fontSize: 11.0,
                               fontWeight: FontWeight.bold,
                               fontFamily: 'Montserrat'),
@@ -84,7 +84,7 @@ class SignInView extends HookWidget {
                           margin: const EdgeInsets.only(top: 1.0),
                           height: 1.0,
                           width: 123,
-                          color: Colors.white,
+                          color: Theme.of(context).primaryColor,
                         ),
                       ],
                     ),
@@ -107,7 +107,7 @@ class SignInView extends HookWidget {
               Text(
                 capitalize(continueWith),
                 style: TextStyle(
-                  color: Colors.white,
+                  color: Theme.of(context).primaryColor,
                   fontFamily: 'Montserrat',
                   fontWeight: FontWeight.bold,
                   fontSize: 16.0,

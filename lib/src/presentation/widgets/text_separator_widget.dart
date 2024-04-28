@@ -17,7 +17,7 @@ class TextSeparatorWidget extends StatelessWidget {
         children: <Widget>[
           Expanded(
             child: Divider(
-              color: Colors.white,
+              color: Theme.of(context).primaryColor,
             ),
           ),
           Padding(
@@ -25,14 +25,14 @@ class TextSeparatorWidget extends StatelessWidget {
             child: Text(
               text,
               style: TextStyle(
-                  color: Colors.white,
+                  color: Theme.of(context).primaryColor,
                   fontFamily: 'Montserrat',
                   fontSize: 12.0),
             ),
           ),
           Expanded(
             child: Divider(
-              color: Colors.white,
+              color: Theme.of(context).primaryColor,
             ),
           ),
         ],

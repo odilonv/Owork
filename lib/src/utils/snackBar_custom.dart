@@ -8,9 +8,9 @@ class SnackBarCustom {
   GlobalKey<ScaffoldMessengerState> _scaffoldMessengerKey =
       GlobalKey<ScaffoldMessengerState>();
 
-  SnackBar get snackBar {
+  SnackBar getSnackBar(BuildContext context) {
     return SnackBar(
-      backgroundColor: Colors.white,
+      backgroundColor: Theme.of(context).primaryColor,
       content: Text(
         message,
         style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),

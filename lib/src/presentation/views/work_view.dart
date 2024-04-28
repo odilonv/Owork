@@ -61,8 +61,8 @@ class WorkView extends HookWidget {
                     timerState.paused
                         ? '${pause.toUpperCase()}.'
                         : '${focusing.toUpperCase()}.',
-                    style: const TextStyle(
-                        color: Colors.white,
+                    style: TextStyle(
+                        color: Theme.of(context).primaryColor,
                         fontSize: 11.5,
                         fontWeight: FontWeight.bold),
                   ),

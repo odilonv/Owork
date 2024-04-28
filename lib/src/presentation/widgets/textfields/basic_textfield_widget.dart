@@ -23,7 +23,7 @@ class _BasicTextfieldWidgetState extends State<BasicTextfieldWidget> {
       decoration: InputDecoration(
         labelText: widget.title,
         labelStyle: TextStyle(
-            color: Colors.white,
+            color: Theme.of(context).primaryColor,
             fontSize: 12.0,
             fontFamily: 'Montserrat',
             fontWeight: FontWeight.bold),
@@ -35,15 +35,16 @@ class _BasicTextfieldWidgetState extends State<BasicTextfieldWidget> {
           borderRadius: BorderRadius.circular(10.0),
           borderSide: BorderSide(color: Colors.transparent),
         ),
-        fillColor: Colors.white.withOpacity(0.15),
+        fillColor: Theme.of(context).primaryColor.withOpacity(0.15),
         filled: true,
         suffixIcon: !_isValid
             ? IconButton(
-                icon: Icon(Icons.warning_rounded, color: Colors.white),
+                icon: Icon(Icons.warning_rounded,
+                    color: Theme.of(context).primaryColor),
                 onPressed: () {
                   ScaffoldMessenger.of(context).showSnackBar(SnackBarCustom(
                           message: 'Format valide : Minimum 3 lettres.')
-                      .snackBar);
+                      .getSnackBar(context));
                 },
               )
             : null,
@@ -57,7 +58,7 @@ class _BasicTextfieldWidgetState extends State<BasicTextfieldWidget> {
         if (!_isValid) {
           ScaffoldMessenger.of(context).showSnackBar(
               SnackBarCustom(message: 'Format valide : Minimum 3 lettres.')
-                  .snackBar);
+                  .getSnackBar(context));
         }
       },
     );

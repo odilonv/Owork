@@ -42,7 +42,7 @@ class _PasswordTextfieldWidgetState extends State<PasswordTextfieldWidget> {
       decoration: InputDecoration(
         labelText: widget.title,
         labelStyle: TextStyle(
-            color: Colors.white,
+            color: Theme.of(context).primaryColor,
             fontSize: 12.0,
             fontFamily: 'Montserrat',
             fontWeight: FontWeight.bold),
@@ -54,26 +54,27 @@ class _PasswordTextfieldWidgetState extends State<PasswordTextfieldWidget> {
           borderRadius: BorderRadius.circular(10.0),
           borderSide: BorderSide(color: Colors.transparent),
         ),
-        fillColor: Colors.white.withOpacity(0.15),
+        fillColor: Theme.of(context).primaryColor.withOpacity(0.15),
         filled: true,
         suffixIcon: Row(
           mainAxisSize: MainAxisSize.min, // This is important
           children: <Widget>[
             !_isValid
                 ? IconButton(
-                    icon: Icon(Icons.warning_rounded, color: Colors.white),
+                    icon: Icon(Icons.warning_rounded,
+                        color: Theme.of(context).primaryColor),
                     onPressed: () {
                       ScaffoldMessenger.of(context).showSnackBar(SnackBarCustom(
                               message:
                                   'Le mot de passe doit contenir :\n- au moins 8 caractères\n- une lettre majuscule\n- une lettre minuscule\n- un chiffre\n- un caractère spécial')
-                          .snackBar);
+                          .getSnackBar(context));
                     },
                   )
                 : Container(),
             IconButton(
               icon: Icon(
                 _obscureText ? Icons.visibility : Icons.visibility_off,
-                color: Colors.white,
+                color: Theme.of(context).primaryColor,
               ),
               onPressed: _togglePasswordVisibility,
             ),
@@ -90,7 +91,7 @@ class _PasswordTextfieldWidgetState extends State<PasswordTextfieldWidget> {
           ScaffoldMessenger.of(context).showSnackBar(SnackBarCustom(
                   message:
                       'Le mot de passe doit contenir :\n- au moins 8 caractères\n- une lettre majuscule\n- une lettre minuscule\n- un chiffre\n- un caractère spécial')
-              .snackBar);
+              .getSnackBar(context));
         }
       },
       onSaved: (value) {

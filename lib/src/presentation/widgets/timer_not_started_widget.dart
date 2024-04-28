@@ -20,7 +20,7 @@ class TimerNotStartedWidget extends StatelessWidget {
       decoration: BoxDecoration(
         shape: BoxShape.circle,
         border: Border.all(
-          color: Colors.white,
+          color: Theme.of(context).primaryColor,
           width: 1.0,
         ),
       ),
@@ -40,15 +40,15 @@ class TimerNotStartedWidget extends StatelessWidget {
                   children: <Widget>[
                     Text(
                       firstLine,
-                      style: const TextStyle(
-                        color: Colors.white,
+                      style: TextStyle(
+                        color: Theme.of(context).primaryColor,
                         fontSize: 20.0,
                       ),
                     ),
                     Text(
                       secondLine,
-                      style: const TextStyle(
-                        color: Colors.white,
+                      style: TextStyle(
+                        color: Theme.of(context).primaryColor,
                         fontSize: 26.0,
                       ),
                     ),

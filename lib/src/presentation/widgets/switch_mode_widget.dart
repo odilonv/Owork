@@ -13,9 +13,9 @@ class SwitchModeWidget extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
         IconButton(
-          icon: const Icon(
+          icon: Icon(
             Icons.move_up_rounded,
-            color: Colors.white,
+            color: Theme.of(context).primaryColor,
             size: 30.0,
           ),
           onPressed: () {},
@@ -25,16 +25,16 @@ class SwitchModeWidget extends StatelessWidget {
           children: <Widget>[
             Text(
               topText.toUpperCase(),
-              style: const TextStyle(
-                color: Colors.white,
+              style: TextStyle(
+                color: Theme.of(context).primaryColor,
                 fontSize: 12.0,
                 fontWeight: FontWeight.bold,
               ),
             ),
             Text(
               bottomText.toUpperCase(),
-              style: const TextStyle(
-                color: Colors.white,
+              style: TextStyle(
+                color: Theme.of(context).primaryColor,
                 fontSize: 9.0,
               ),
             ),

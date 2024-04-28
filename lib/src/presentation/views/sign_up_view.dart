@@ -42,8 +42,8 @@ class SignUpView extends HookWidget {
                   alignment: Alignment.centerLeft,
                   child: Text(
                     'Vous aussi, \ndevenez une personne productive :',
-                    style: const TextStyle(
-                        color: Colors.white,
+                    style: TextStyle(
+                        color: Theme.of(context).primaryColor,
                         fontSize: 14.0,
                         fontWeight: FontWeight.bold,
                         fontFamily: 'Montserrat'),
@@ -71,7 +71,7 @@ class SignUpView extends HookWidget {
                     Text(
                       capitalize("s'inscrire avec"),
                       style: TextStyle(
-                        color: Colors.white,
+                        color: Theme.of(context).primaryColor,
                         fontFamily: 'Montserrat',
                         fontWeight: FontWeight.bold,
                         fontSize: 16.0,

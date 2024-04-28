@@ -61,17 +61,17 @@ class TimeInputByTextFieldWidget extends HookConsumerWidget {
           if (displayHours) ...[
             SizedBox(
               width: 100,
-              child: generateTextField(controller, focus, label: "HH"),
+              child: generateTextField(controller, context, focus, label: "HH"),
             ),
             Text(":",
                 style: TextStyle(
-                    color: Colors.white,
+                    color: Theme.of(context).primaryColor,
                     fontWeight: FontWeight.bold,
                     fontSize: 25)),
           ],
           SizedBox(
             width: 100,
-            child: generateTextField(controller, focus, label: "MM"),
+            child: generateTextField(controller, context, focus, label: "MM"),
           ),
         ],
       ),
@@ -80,22 +80,25 @@ class TimeInputByTextFieldWidget extends HookConsumerWidget {
 
   Widget generateTextField(
     TextEditingController controller,
+    BuildContext context,
     FocusNode focusNode, {
     required String label,
   }) {
     return TextField(
       controller: controller,
-      style: TextStyle(color: Colors.white),
+      style: TextStyle(color: Theme.of(context).primaryColor),
       keyboardType: TextInputType.number,
       inputFormatters: [FilteringTextInputFormatter.digitsOnly],
       textAlign: TextAlign.center,
       decoration: InputDecoration(
         floatingLabelAlignment: FloatingLabelAlignment.center,
         labelText: label,
-        labelStyle: TextStyle(color: Colors.white), // Add this line
+        labelStyle:
+            TextStyle(color: Theme.of(context).primaryColor), // Add this line
         border: InputBorder.none,
         focusedBorder: OutlineInputBorder(
-          borderSide: BorderSide(width: 1, color: Colors.white),
+          borderSide:
+              BorderSide(width: 1, color: Theme.of(context).primaryColor),
         ),
       ),
       focusNode: focusNode,

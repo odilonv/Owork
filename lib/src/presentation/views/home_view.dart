@@ -55,7 +55,7 @@ class HomeView extends HookWidget {
                 ),
                 IconButton(
                   icon: Icon(Icons.settings),
-                  color: Colors.white,
+                  color: Theme.of(context).primaryColor,
                   onPressed: () => appRouter.push(PomodoroRoute(
                     totalTime: totalTime,
                     workingTime: workingTime,

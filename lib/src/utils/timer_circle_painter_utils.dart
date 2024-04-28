@@ -4,9 +4,10 @@ import 'package:flutter/material.dart';
 
 class TimerCirclePainter extends CustomPainter {
   final double percentage;
+  final Color color;
   static double? maxPercentage;
 
-  TimerCirclePainter({required this.percentage}) {
+  TimerCirclePainter({required this.percentage, required this.color}) {
     if (maxPercentage == null) {
       maxPercentage = percentage;
     }
@@ -15,7 +16,7 @@ class TimerCirclePainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     final paint = Paint()
-      ..color = Colors.white
+      ..color = color
       ..strokeWidth = 5.0
       ..style = PaintingStyle.stroke;
 

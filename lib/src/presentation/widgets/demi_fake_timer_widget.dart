@@ -15,7 +15,7 @@ class DemiFakeTimerWidget extends StatelessWidget {
       height: 150.0,
       decoration: BoxDecoration(
         border: Border.all(
-          color: Colors.white,
+          color: Theme.of(context).primaryColor,
           width: 1.0,
         ),
         borderRadius: BorderRadius.only(
@@ -41,7 +41,7 @@ class DemiFakeTimerWidget extends StatelessWidget {
               Text(
                 firstLine,
                 style: TextStyle(
-                  color: Colors.white,
+                  color: Theme.of(context).primaryColor,
                   fontSize: 20.0,
                 ),
               ),

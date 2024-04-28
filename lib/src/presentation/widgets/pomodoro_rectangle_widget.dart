@@ -26,7 +26,7 @@ class PomodoroRectangleWidget extends StatelessWidget {
       width: 300,
       decoration: BoxDecoration(
         border: Border.all(
-          color: Colors.white,
+          color: Theme.of(context).primaryColor,
           width: 0.3,
         ),
         borderRadius: BorderRadius.circular(10.0),
@@ -35,8 +35,8 @@ class PomodoroRectangleWidget extends StatelessWidget {
         if (title != null) ...[
           Text(
             title!.toUpperCase(),
-            style: const TextStyle(
-              color: Colors.white,
+            style: TextStyle(
+              color: Theme.of(context).primaryColor,
               fontSize: 11.0,
             ),
           ),
@@ -50,8 +50,10 @@ class PomodoroRectangleWidget extends StatelessWidget {
           handler
               ? '${totalDuration.toUpperCase()} : ${convertMinutesToHoursAndMinutes(totalTime)}'
               : convertMinutesToHoursAndMinutes(totalTime),
-          style: const TextStyle(
-              color: Colors.white, fontSize: 14.0, fontWeight: FontWeight.bold),
+          style: TextStyle(
+              color: Theme.of(context).primaryColor,
+              fontSize: 14.0,
+              fontWeight: FontWeight.bold),
         ),
         if (handler && workAndPauseDurationVisible) ...[
           const SizedBox(height: smallSpace),
@@ -59,16 +61,16 @@ class PomodoroRectangleWidget extends StatelessWidget {
         if (workAndPauseDurationVisible) ...[
           Text(
             '${work.toUpperCase()} : $workingTime${diminutiveMinutes.toUpperCase()}',
-            style: const TextStyle(
-              color: Colors.white,
+            style: TextStyle(
+              color: Theme.of(context).primaryColor,
               fontSize: 14.0,
             ),
           ),
           const SizedBox(height: smallSpace),
           Text(
             '${pause.toUpperCase()} : $breakTime${diminutiveMinutes.toUpperCase()}',
-            style: const TextStyle(
-              color: Colors.white,
+            style: TextStyle(
+              color: Theme.of(context).primaryColor,
               fontSize: 14.0,
             ),
           )

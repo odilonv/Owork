@@ -33,8 +33,8 @@ class BottomButtonWidget extends StatelessWidget {
                 if (bottomButtonText != null)
                   Text(
                     bottomButtonText!,
-                    style: const TextStyle(
-                      color: Colors.white,
+                    style: TextStyle(
+                      color: Theme.of(context).primaryColor,
                       fontSize: 14,
                       fontWeight: FontWeight.w900,
                     ),
@@ -44,7 +44,7 @@ class BottomButtonWidget extends StatelessWidget {
                 if (iconButton != null)
                   Icon(
                     iconButton,
-                    color: Colors.white,
+                    color: Theme.of(context).primaryColor,
                     size: 20.0,
                   ),
               ],

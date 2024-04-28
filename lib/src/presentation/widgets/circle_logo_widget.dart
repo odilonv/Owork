@@ -24,7 +24,7 @@ class CircleLogoWidget extends StatelessWidget {
       width: backgroundSize ?? 35,
       height: backgroundSize ?? 35,
       decoration: BoxDecoration(
-        color: backgroundColor ?? Colors.white,
+        color: backgroundColor ?? Theme.of(context).primaryColor,
         shape: boxShape ?? BoxShape.circle,
       ),
       child: Padding(

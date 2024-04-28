@@ -23,7 +23,7 @@ class _EmailTextfieldWidgetState extends State<EmailTextfieldWidget> {
       decoration: InputDecoration(
         labelText: widget.title,
         labelStyle: TextStyle(
-            color: Colors.white,
+            color: Theme.of(context).primaryColor,
             fontSize: 12.0,
             fontFamily: 'Montserrat',
             fontWeight: FontWeight.bold),
@@ -35,16 +35,17 @@ class _EmailTextfieldWidgetState extends State<EmailTextfieldWidget> {
           borderRadius: BorderRadius.circular(10.0),
           borderSide: BorderSide(color: Colors.transparent),
         ),
-        fillColor: Colors.white.withOpacity(0.15),
+        fillColor: Theme.of(context).primaryColor.withOpacity(0.15),
         filled: true,
         suffixIcon: !_isValid
             ? IconButton(
-                icon: Icon(Icons.warning_rounded, color: Colors.white),
+                icon: Icon(Icons.warning_rounded,
+                    color: Theme.of(context).primaryColor),
                 onPressed: () {
                   ScaffoldMessenger.of(context).showSnackBar(SnackBarCustom(
                           message:
                               'Format d\'email valide : example@example.com')
-                      .snackBar);
+                      .getSnackBar(context));
                 },
               )
             : null,
@@ -58,7 +59,7 @@ class _EmailTextfieldWidgetState extends State<EmailTextfieldWidget> {
         if (!_isValid) {
           ScaffoldMessenger.of(context).showSnackBar(SnackBarCustom(
                   message: 'Format d\'email valide : example@example.com')
-              .snackBar);
+              .getSnackBar(context));
         }
       },
       keyboardType: TextInputType.emailAddress,
