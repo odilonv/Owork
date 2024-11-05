@@ -39,7 +39,7 @@ class TimerWidget extends StatelessWidget {
                 return CustomPaint(
                   painter: TimerCirclePainter(
                       percentage: value, color: Theme.of(context).primaryColor),
-                  child: Container(
+                  child: const SizedBox(
                     width: 320.0,
                     height: 320.0,
                   ),

@@ -6,7 +6,7 @@ import '../../../utils/snackBar_custom.dart';
 
 class BasicTextfieldWidget extends StatefulWidget {
   final String? title;
-  BasicTextfieldWidget({Key? key, this.title}) : super(key: key);
+  const BasicTextfieldWidget({Key? key, this.title}) : super(key: key);
 
   @override
   _BasicTextfieldWidgetState createState() => _BasicTextfieldWidgetState();

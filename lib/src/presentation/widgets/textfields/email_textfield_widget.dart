@@ -6,7 +6,7 @@ import 'package:project/src/utils/snackBar_custom.dart';
 
 class EmailTextfieldWidget extends StatefulWidget {
   final String? title;
-  EmailTextfieldWidget({Key? key, this.title}) : super(key: key);
+  const EmailTextfieldWidget({Key? key, this.title}) : super(key: key);
 
   @override
   _EmailTextfieldWidgetState createState() => _EmailTextfieldWidgetState();

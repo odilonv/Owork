@@ -15,16 +15,16 @@ class LargeButtonWidget extends StatelessWidget {
         onPressed: onPressed,
         style: ButtonStyle(
           backgroundColor:
-              MaterialStateProperty.all<Color>(Theme.of(context).primaryColor),
-          overlayColor: MaterialStateProperty.resolveWith<Color>(
-            (Set<MaterialState> states) {
-              if (states.contains(MaterialState.pressed)) {
+              WidgetStateProperty.all<Color>(Theme.of(context).primaryColor),
+          overlayColor: WidgetStateProperty.resolveWith<Color>(
+            (Set<WidgetState> states) {
+              if (states.contains(WidgetState.pressed)) {
                 return Theme.of(context).primaryColor;
               }
               return Colors.transparent;
             },
           ),
-          shape: MaterialStateProperty.all<OutlinedBorder>(
+          shape: WidgetStateProperty.all<OutlinedBorder>(
             RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(10.0),
             ),

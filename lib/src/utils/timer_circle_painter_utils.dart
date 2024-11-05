@@ -8,9 +8,7 @@ class TimerCirclePainter extends CustomPainter {
   static double? maxPercentage;
 
   TimerCirclePainter({required this.percentage, required this.color}) {
-    if (maxPercentage == null) {
-      maxPercentage = percentage;
-    }
+    maxPercentage ??= percentage;
   }
 
   @override
@@ -29,6 +27,16 @@ class TimerCirclePainter extends CustomPainter {
 
     canvas.drawArc(Rect.fromCircle(center: center, radius: radius), startAngle,
         sweepAngle, false, paint);
+
+    const cornerRadius = 5.0;
+
+    final endCorner = Offset(center.dx + radius * cos(startAngle + sweepAngle),
+        center.dy + radius * sin(startAngle + sweepAngle));
+    final fillPaint = Paint()
+      ..style = PaintingStyle.fill
+      ..color = paint.color;
+
+    canvas.drawCircle(endCorner, cornerRadius, fillPaint);
   }
 
   @override

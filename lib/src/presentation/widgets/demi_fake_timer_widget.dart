@@ -18,7 +18,7 @@ class DemiFakeTimerWidget extends StatelessWidget {
           color: Theme.of(context).primaryColor,
           width: 1.0,
         ),
-        borderRadius: BorderRadius.only(
+        borderRadius: const BorderRadius.only(
           topLeft: Radius.circular(150),
           topRight: Radius.circular(150),
         ),
@@ -27,7 +27,7 @@ class DemiFakeTimerWidget extends StatelessWidget {
         child: Container(
           width: 280.0,
           height: 140.0,
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             color: Color.fromRGBO(255, 255, 255, 0.20),
             borderRadius: BorderRadius.only(
               topLeft: Radius.circular(150),

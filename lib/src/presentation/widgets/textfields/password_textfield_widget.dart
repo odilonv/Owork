@@ -5,7 +5,7 @@ import '../../../utils/snackBar_custom.dart';
 class PasswordTextfieldWidget extends StatefulWidget {
   final String? title;
 
-  PasswordTextfieldWidget({Key? key, this.title}) : super(key: key);
+  const PasswordTextfieldWidget({Key? key, this.title}) : super(key: key);
 
   @override
   _PasswordTextfieldWidgetState createState() =>
@@ -21,11 +21,12 @@ class _PasswordTextfieldWidgetState extends State<PasswordTextfieldWidget> {
 
   bool _validatePassword(String? value) {
     Pattern pattern = r'^(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z]).{8,}$';
-    RegExp regex = new RegExp(pattern.toString());
-    if (!regex.hasMatch(value!))
+    RegExp regex = RegExp(pattern.toString());
+    if (!regex.hasMatch(value!)) {
       return false;
-    else
+    } else {
       return true;
+    }
   }
 
   void _togglePasswordVisibility() {
@@ -48,11 +49,11 @@ class _PasswordTextfieldWidgetState extends State<PasswordTextfieldWidget> {
             fontWeight: FontWeight.bold),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10.0),
-          borderSide: BorderSide(color: Colors.transparent),
+          borderSide: const BorderSide(color: Colors.transparent),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10.0),
-          borderSide: BorderSide(color: Colors.transparent),
+          borderSide: const BorderSide(color: Colors.transparent),
         ),
         fillColor: Theme.of(context).primaryColor.withOpacity(0.15),
         filled: true,

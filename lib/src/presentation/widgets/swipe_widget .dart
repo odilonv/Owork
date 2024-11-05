@@ -19,7 +19,7 @@ class SwipeWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: double.infinity,
       child: GestureDetector(
         onTap: () {
@@ -30,7 +30,7 @@ class SwipeWidget extends StatelessWidget {
             onSwipe();
           }
         },
-        child: Container(
+        child: SizedBox(
           width: double.infinity,
           child: Column(
             children: <Widget>[

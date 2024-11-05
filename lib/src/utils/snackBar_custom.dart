@@ -5,7 +5,7 @@ class SnackBarCustom {
 
   SnackBarCustom({required this.message});
 
-  GlobalKey<ScaffoldMessengerState> _scaffoldMessengerKey =
+  final GlobalKey<ScaffoldMessengerState> _scaffoldMessengerKey =
       GlobalKey<ScaffoldMessengerState>();
 
   SnackBar getSnackBar(BuildContext context) {
@@ -13,9 +13,9 @@ class SnackBarCustom {
       backgroundColor: Theme.of(context).primaryColor,
       content: Text(
         message,
-        style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+        style: const TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
       ),
-      shape: RoundedRectangleBorder(
+      shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.only(
             topLeft: Radius.circular(10.0), topRight: Radius.circular(10.0)),
       ),

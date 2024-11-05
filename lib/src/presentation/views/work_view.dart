@@ -24,7 +24,10 @@ class WorkView extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    final timerState = TimerState(workingTime: workingTime);
+    final timerState = TimerState(
+        workingTime: workingTime,
+        breakingTime: breakTime,
+        totalDuration: totalTime);
 
     useEffect(() {
       timerState.startTimer();
@@ -75,6 +78,11 @@ class WorkView extends HookWidget {
                         timerState.remainingTime.toDouble(),
                       )),
                   Spacer(),
+                  BottomButtonWidget(
+                    bottomButtonText: 'Start Break',
+                    iconButton: Icons.fast_forward_rounded,
+                    onPressed: timerState.activateBreakTime,
+                  ),
                   BottomButtonWidget(
                     bottomButtonText: timerState.paused
                         ? resume.toUpperCase()

@@ -27,7 +27,7 @@ class PomodoroRectangleWidget extends StatelessWidget {
       decoration: BoxDecoration(
         border: Border.all(
           color: Theme.of(context).primaryColor,
-          width: 0.3,
+          width: 0.2,
         ),
         borderRadius: BorderRadius.circular(10.0),
       ),
